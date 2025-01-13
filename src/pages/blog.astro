@@ -1,5 +1,14 @@
 ---
+import "../styles/global.css";
+
 const pageTitle = "Mein Astro-Lernblog";
+const posts = [
+    { title: "Post 1", href: "/posts/post-1/" },
+    { title: "Post 2", href: "/posts/post-2/" },
+    { title: "Post 3", href: "/posts/post-3/" },
+];
+const welcomeMessage = "Willkommen zu meinem Lernblog über Astro!";
+const currentDate = new Date().toLocaleDateString();
 ---
 
 <html lang="en">
@@ -14,11 +23,17 @@ const pageTitle = "Mein Astro-Lernblog";
         <a href="/blog/">Blog</a>
 
         <h1>{pageTitle}</h1>
+        <p>{welcomeMessage}</p>
+        <p>Heutiges Datum: {currentDate}</p>
         <p>This is where I will post about my journey learning Astro.</p>
         <ul>
-            <li><a href="/posts/post-1/">Post 1</a></li>
-            <li><a href="/posts/post-2/">Post 2</a></li>
-            <li><a href="/posts/post-3/">Post 3</a></li>
+            {
+                posts.map((post) => (
+                    <li>
+                        <a href={post.href}>{post.title}</a>
+                    </li>
+                ))
+            }
         </ul>
     </body>
 </html>

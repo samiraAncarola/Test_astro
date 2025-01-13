@@ -1,5 +1,14 @@
 ---
+import "../styles/global.css";
+
 const pageTitle = "Homepage";
+const welcomeMessage = "Willkommen auf meiner Astro-Website!";
+const currentDate = new Date().toLocaleDateString();
+const features = [
+	"Feature 1: Schnelle Ladezeiten",
+	"Feature 2: Einfache Navigation",
+	"Feature 3: Responsives Design",
+];
 ---
 
 <a href="/">Home</a>
@@ -16,5 +25,12 @@ const pageTitle = "Homepage";
 	</head>
 	<body>
 		<h1>{pageTitle}</h1>
+		<p>{welcomeMessage}</p>
+		<p>Heutiges Datum: {currentDate}</p>
+		<nav>
+			<ul>
+				{features.map((feature) => <li>{feature}</li>)}
+			</ul>
+		</nav>
 	</body>
 </html>
