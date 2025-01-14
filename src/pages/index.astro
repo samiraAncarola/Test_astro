@@ -1,36 +1,8 @@
 ---
-import "../styles/global.css";
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Homepage";
-const welcomeMessage = "Willkommen auf meiner Astro-Website!";
-const currentDate = new Date().toLocaleDateString();
-const features = [
-	"Feature 1: Schnelle Ladezeiten",
-	"Feature 2: Einfache Navigation",
-	"Feature 3: Responsives Design",
-];
 ---
 
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-		<h1>{pageTitle}</h1>
-		<p>{welcomeMessage}</p>
-		<p>Heutiges Datum: {currentDate}</p>
-		<nav>
-			<ul>
-				{features.map((feature) => <li>{feature}</li>)}
-			</ul>
-		</nav>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+	<h2>My awesome blog subtitle</h2>
+</BaseLayout>
